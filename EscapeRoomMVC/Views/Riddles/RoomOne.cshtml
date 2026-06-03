@@ -1,7 +1,15 @@
-﻿<div class="text-center">
+﻿@model List<EscapeRoomMVC.ViewModels.QuestionViewModel>
+
+<div class="text-center">
+	<h1></h1>
+	@foreach (var question in Model)
+	{
+		<p>@question.Description</p>
+	}
+
     <p>Den har inget lock inte ingen botten, men kan ändå hålla kött, blod och ben på samma gång.</p>
    <form>
-       <label 
+       <label></label>
            <input type="text" name="answer"/>
     <input type="submit" />
     </form>
