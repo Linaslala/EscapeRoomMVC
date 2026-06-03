@@ -6,18 +6,16 @@
 
 @model List<EscapeRoomMVC.ViewModels.QuestionViewModel>
 
+
 <div class="text-center">
-    <h1>@Model[0].Description</h1>
+    <h1>@Model[0].Title</h1
 
-    @foreach (var question in Model)
-    {
-        <p>@question.Description</p>
-    }
+    <h3>@Model[0].Description</h3>
+    <br>
 
-    <p>Den har inget lock inte ingen botten, men kan ändå hålla kött, blod och ben på samma gång.</p>
     <form>
         <label></label>
-        <input type="text" name="answer" />
+        <input type="text" name="answer" placeholder="Type Answer" required/>
         <input type="submit" />
     </form>
 </div>
