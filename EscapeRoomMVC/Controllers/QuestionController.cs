@@ -52,5 +52,17 @@ namespace EscapeRoomMVC.Controllers
 
             return View(Questions);
         }
+
+        public IActionResult RoomOne()
+        {
+            // Create a dummy list of QuestionViewModel for now,
+            // or fetch actual data if you have it.
+            var questions = new List<QuestionViewModel>
+            {
+                new QuestionViewModel { Id = 1, Description = "Question 1 Description" },
+                // Add more as needed
+            };
+            return View(questions); // Pass the model to the view
+        }
     }
 }

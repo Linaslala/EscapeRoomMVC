@@ -1,4 +1,5 @@
 using EscapeRoomMVC.Models;
+using EscapeRoomMVC.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,15 +7,80 @@ namespace EscapeRoomMVC.Controllers
 {
     public class HomeController : Controller
     {
+        public List<QuestionViewModel> Questions { get; set; } = new List<QuestionViewModel>();
+
         public IActionResult Index()
         {
-            return View();
+            Questions.Add(new QuestionViewModel
+            {
+                Id = 1,
+                Title = "Riddle one",
+                Description = "Den har inget lock inte ingen botten, men kan ändå hålla kött, blod och ben på samma gång.",
+                Answer = "Ringen"
+            });
+
+            Questions.Add(new QuestionViewModel
+            {
+                Id = 2,
+                Title = "Riddle two",
+                Description = "Gissar du mig har du gissat fel: gissar du fel har du i alla fall gissat rätt.",
+                Answer = "Fel"
+            });
+
+            Questions.Add(new QuestionViewModel
+            {
+                Id = 3,
+                Title = "Riddle three",
+                Description = "Det simmade tio fiskar i en stängd tank. Två av dem sjönk till botten, fyra simmade iväg och tre dog. Hur många fanns kvar?",
+                Answer = "Tio"
+            });
+
+            Questions.Add(new QuestionViewModel
+            {
+                Id = 4,
+                Title = "Riddle four",
+                Description = "Vad är det för farkost som läses likadant framifrån som bakifrån?",
+                Answer = "Kajak"
+            });
+
+            Questions.Add(new QuestionViewModel
+            {
+                Id = 5,
+                Title = "Riddle five",
+                Description = "Två ingångar till huset, men först när man är ute med fötterna är man riktigt inne?",
+                Answer = "Byxorna"
+            });
+
+
+            return View(Questions);
         }
+
+        //public IActionResult Index()
+        //{
+        //    return View();
+        //}
 
         public IActionResult Privacy()
         {
             return View();
         }
+
+        //public IActionResult RoomOne()
+        //{
+        //    // Create a dummy list of QuestionViewModel for now,
+        //    // or fetch actual data if you have it.
+        //    var questions = new List<QuestionViewModel>
+        //    {
+        //        new QuestionViewModel { Id = 1, Description = "Question 1 Description" },
+        //        // Add more as needed
+        //    };
+        //    return View(questions); // Pass the model to the view
+        //}
+
+        //public IActionResult RoomOne()
+        //{
+        //    return View();
+        //}
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
